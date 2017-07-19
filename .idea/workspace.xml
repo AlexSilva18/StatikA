@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00b01563-1d1a-43bd-8a28-14dfd75c1e04" name="Default" comment="templates migrations">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testing/templates/testing/output.html" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/testing/templates/test_detail.html" afterPath="" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/testing/templates/test_python.html" afterPath="$PROJECT_DIR$/testing/templates/testing/test_python.html" />
@@ -449,7 +448,14 @@
       <option name="project" value="LOCAL" />
       <updated>1500480092850</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="StatikA startup">
+      <created>1500480214145</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1500480214145</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
