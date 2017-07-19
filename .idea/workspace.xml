@@ -9,9 +9,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/testing/templates/test_detail.html" afterPath="" />
       <change type="MOVED" beforePath="$PROJECT_DIR$/testing/templates/test_python.html" afterPath="$PROJECT_DIR$/testing/templates/testing/test_python.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testing/models.py" afterPath="$PROJECT_DIR$/testing/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testing/urls.py" afterPath="$PROJECT_DIR$/testing/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testing/views.py" afterPath="$PROJECT_DIR$/testing/views.py" />
     </list>
     <ignored path="db.sqlite3" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -455,7 +452,14 @@
       <option name="project" value="LOCAL" />
       <updated>1500480214145</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="testing app">
+      <created>1500480247205</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1500480247205</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -506,10 +510,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit" />
     <MESSAGE value="Basic Templates" />
-    <MESSAGE value="testing app" />
     <MESSAGE value="templates migrations" />
     <MESSAGE value="StatikA startup" />
-    <option name="LAST_COMMIT_MESSAGE" value="StatikA startup" />
+    <MESSAGE value="testing app" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing app" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
