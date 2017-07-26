@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+          <br><h2><center>bandit</center></h2></br>
+
+      </div>
+    </div>
+    <div class="container">
+      <!-- Example row of columns -->
+      <br class="form-group">
+        <label for="comment">Upload file here:</label>
+        <textarea class="form-control" rows="30" id="comment" name="mytextbox"></textarea>
+        <a class="btn btn-primary btn-lg" href="testing/OUTPUT" role="button" value="Click" name="mybtn">Run code &raquo;</a>
+
+        <!--<label for="comment">Upload file here:</label>
+        <form method="post" action="{% url 'testing:test_test' %}" enctype="multipart/form-data">
+        <input type="file" name="datafile" size="40">
+        <a class="btn btn-primary btn-lg" href="testing/OUTPUT" role="button" value="Click" name="mybtn">Run code &raquo;</a>
+        </form>-->
+
+    </div>
+    </div>
+{% endblock %}
