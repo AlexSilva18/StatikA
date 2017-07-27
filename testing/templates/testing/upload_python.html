@@ -11,9 +11,12 @@
     <div class="container">
       <!-- Example row of columns -->
       <br class="form-group">
+        <form method="POST" action="{% url 'testing:test_test' %}">
+            {% csrf_token %}
         <label for="comment">Upload file here:</label>
         <textarea class="form-control" rows="30" id="comment" name="mytextbox"></textarea>
-        <a class="btn btn-primary btn-lg" href="testing/OUTPUT" role="button" value="Click" name="mybtn">Run code &raquo;</a>
+        <input type="submit" class="btn btn-primary btn-lg" role="button" value="Run code &raquo;" name="mybtn">
+        </form>
 
         <!--<label for="comment">Upload file here:</label>
         <form method="post" action="{% url 'testing:test_test' %}" enctype="multipart/form-data">
