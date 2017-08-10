@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.generic import TemplateView
-
+from ckeditor_uploader import urls as ckeditor_urls
 from testing import urls as testing_urls
 
 urlpatterns = [

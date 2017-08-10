@@ -1,21 +1,81 @@
+<!doctype html>
 {% extends "layout.html" %}
+{% load staticfiles %}
+
+<link rel="stylesheet" type = "text/css" href="{% static 'testing/plugins/codemirror/lib/codemirror.css' %}">
+
 
 {% block content %}
+    <body>
+
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-          <br><h2><center>bandit</center></h2></br>
-
+          <br><h2><center>Flake8</center></h2></br>
       </div>
     </div>
-    <div class="container">
+    <div class="ace_content">
       <!-- Example row of columns -->
       <br class="form-group">
         <label for="comment">Enter your code here:</label>
         <!--<input type="text" value="8" name="mytextbox" size="1"/>
         <input type="submit" class="btn" value="Click" name="mybtn">-->
-        <textarea class="form-control" rows="30" id="comment" name="mytextbox"></textarea>
+        <div><textarea class="form-control" rows="30" id="mytextbox1" name="mytextbox1"></textarea></div>
         <a class="btn btn-primary btn-lg" href="/testing/TESTING" role="button" value="Click" name="mybtn">Run code &raquo;</a>
       </div>
     </div>
+
+
+    <br>
+
+
+
+<meta charset="utf-8"/>
+<link rel=stylesheet href="{% static 'plugins/CodeMirror/doc/docs.css' %}">
+
+<link rel="stylesheet" href="{% static 'plugins/CodeMirror/lib/codemirror.css' %}">
+<link rel="stylesheet" href="{% static 'plugins/CodeMirror/theme/monokai.css' %}">
+<script src="{% static 'plugins/CodeMirror/lib/codemirror.js' %}"></script>
+<script src="{% static 'plugins/CodeMirror/mode/javascript/javascript.js' %}"></script>
+<script src="{% static 'plugins/CodeMirror/addon/selection/active-line.js' %}"></script>
+<script src="{% static 'plugins/CodeMirror/addon/edit/matchbrackets.js' %}"></script>
+<style type="text/css">
+      .CodeMirror {border: 1px solid black; font-size:13px}
+    </style>
+
+<form><textarea id="mytextbox" name="mytextbox">
+</textarea></form>
+
+<p>Select a theme: <select onchange="selectTheme()" id=select>
+    <option selected>default</option>
+    <option>monokai</option>
+</select>
+</p>
+
+<script>
+  var editor = CodeMirror.fromTextArea(document.getElementById("mytextbox"), {
+    lineNumbers: true,
+    styleActiveLine: true,
+    matchBrackets: true
+  });
+  var input = document.getElementById("select");
+  function selectTheme() {
+    var theme = input.options[input.selectedIndex].textContent;
+    editor.setOption("theme", theme);
+    location.hash = "#" + theme;
+  }
+  var choice = (location.hash && location.hash.slice(1)) ||
+               (document.location.search &&
+                decodeURIComponent(document.location.search.slice(1)));
+  if (choice) {
+    input.value = choice;
+    editor.setOption("theme", choice);
+  }
+  CodeMirror.on(window, "hashchange", function() {
+    var theme = location.hash.slice(1);
+    if (theme) { input.value = theme; selectTheme(); }
+  });
+</script>
+
+</body>
 {% endblock %}

@@ -1,10 +1,12 @@
 {% extends "layout.html" %}
 
+{% load static %}
+
 {% block content %}
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-          <br><h2><center>bandit</center></h2></br>
+          <br><h2><center>Flake8</center></h2></br>
 
       </div>
     </div>
@@ -13,17 +15,69 @@
       <br class="form-group">
         <form method="POST" action="{% url 'testing:test_test' %}">
             {% csrf_token %}
-        <label for="comment">Upload file here:</label>
-        <textarea class="form-control" rows="30" id="comment" name="mytextbox"></textarea>
+        <label for="comment">Enter code:</label>
+        <!--<textarea class="form-control" rows="30" id="comment" name="mytextbox1"></textarea>-->
+        <textarea id="mytextbox" name="mytextbox"></textarea>
+        <p>Select a theme: <select onchange="selectTheme()" id=select>
+        <option selected>default</option>
+        <option>3024-night</option>
+        <option>cobalt</option>
+        <option>icecoder</option>
+        <option>monokai</option>
+        <option>panda-syntax</option>
+        <option>twilight</option>
+        <option>yeti</option>
+        <option>zenburn</option>
+        </select>
+        </p>
         <input type="submit" class="btn btn-primary btn-lg" role="button" value="Run code &raquo;" name="mybtn">
         </form>
-
-        <!--<label for="comment">Upload file here:</label>
-        <form method="post" action="{% url 'testing:test_test' %}" enctype="multipart/form-data">
-        <input type="file" name="datafile" size="40">
-        <a class="btn btn-primary btn-lg" href="testing/OUTPUT" role="button" value="Click" name="mybtn">Run code &raquo;</a>
-        </form>-->
-
     </div>
     </div>
+
+<link rel=stylesheet href="{% static 'plugins/CodeMirror/doc/docs.css' %}">
+<link rel="stylesheet" href="{% static 'plugins/CodeMirror/lib/codemirror.css' %}">
+<link rel=stylesheet href="{% static 'plugins/CodeMirror/doc/docs.css' %}">
+<link rel="stylesheet" href="{% static 'plugins/CodeMirror/lib/codemirror.css' %}">
+<link rel="stylesheet" href="{% static 'plugins/CodeMirror/theme/3024-night.css' %}">
+<link rel="stylesheet" href="{% static 'plugins/CodeMirror//theme/cobalt.css' %}">
+<link rel="stylesheet" href="{% static 'plugins/CodeMirror/theme/icecoder.css' %}">
+<link rel="stylesheet" href="{% static 'plugins/CodeMirror/theme/monokai.css' %}">
+<link rel="stylesheet" href="{% static 'plugins/CodeMirror/theme/panda-syntax.css' %}">
+<link rel="stylesheet" href="{% static 'plugins/CodeMirror/theme/twilight.css' %}">
+<link rel="stylesheet" href="{% static 'plugins/CodeMirror/theme/yeti.css' %}">
+<link rel="stylesheet" href="{% static 'plugins/CodeMirror/theme/zenburn.css' %}">
+<script src="{% static 'plugins/CodeMirror/lib/codemirror.js' %}"></script>
+<script src="{% static 'plugins/CodeMirror/mode/javascript/javascript.js' %}"></script>
+<script src="{% static 'plugins/CodeMirror/addon/selection/active-line.js' %}"></script>
+<script src="{% static 'plugins/CodeMirror/addon/edit/matchbrackets.js' %}"></script>
+<style type="text/css">
+      .CodeMirror {border: 1px solid black; font-size:13px}
+    </style>
+
+<script>
+  var editor = CodeMirror.fromTextArea(document.getElementById("mytextbox"), {
+    lineNumbers: true,
+    styleActiveLine: true,
+    matchBrackets: true
+  });
+  var input = document.getElementById("select");
+  function selectTheme() {
+    var theme = input.options[input.selectedIndex].textContent;
+    editor.setOption("theme", theme);
+    location.hash = "#" + theme;
+  }
+  var choice = (location.hash && location.hash.slice(1)) ||
+               (document.location.search &&
+                decodeURIComponent(document.location.search.slice(1)));
+  if (choice) {
+    input.value = choice;
+    editor.setOption("theme", choice);
+  }
+  CodeMirror.on(window, "hashchange", function() {
+    var theme = location.hash.slice(1);
+    if (theme) { input.value = theme; selectTheme(); }
+  });
+</script>
+
 {% endblock %}

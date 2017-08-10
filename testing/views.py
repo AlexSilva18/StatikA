@@ -6,12 +6,14 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext, Context
 from django.shortcuts import get_object_or_404, render, redirect
 from testing.models import Testing
-import bandit
-python_code = __import__('django-lint')
-
+from django import forms
+from codemirror2.widgets import CodeMirrorEditor
 
 def test_python(request):
     return render(request, 'testing/upload_python.html',)
+
+def TESTING(request):
+    return render(request, 'testing/test_python.html',)
 
 
 def test_test(request):
@@ -37,24 +39,5 @@ def test_test(request):
             return render(request, 'testing/output.html', context)
     return redirect('testing:test_python')
 
-
-"""def test_test(request):
-    html_result = ''
-    if request.method == "POST":
-        # this checks that a file exists
-        if len(request.FILES) != 0:
-            file1 = request.FILES['file1']
-            test = exec("django-lint.py", file1)
-            for sentence in test:
-                html_result += '<p>{}</p>'.format(sentence)
-    return render(request, 'testing/output.html')"""
-
-
-"""def test_test(request):
-    response = HttpResponse()
-    if(request.GET.get('mybtn')):
-        script =  py-find-injection.Script('mytxt' )
-        completion = script.unit.core()
-        if completion:
-            return HttpResponseRedirect(Testing.get_absolute_url())
-    return render(request, 'testing/output.html')"""
+class TestFrom(forms.Form):
+    css = forms.CharField(widget=CodeMirrorEditor(options={'mode': 'css'}))
